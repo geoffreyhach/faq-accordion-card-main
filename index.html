@@ -3,19 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | FAQ Accordion Card</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  How many team members can I invite?
+  <main>
+      <div class="card">
+        <div class="card-img"></div>
+        <div class="card-faq">
+          <h1>FAQ</h1>
+          
+          <button class="accordion" o">How many team members can I invite?<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
+          <div class="panel">
+            <p> You can invite up to 2 additional users on the Free plan. There is no limit on 
+              team members for the Premium plan.</p>
+          </div>
+          
+
+        </div>
+      </div>
+
+
+      <script src="app.js"></script>
+  </main>
+
+  <!-- How many team members can I invite?
   You can invite up to 2 additional users on the Free plan. There is no limit on 
   team members for the Premium plan.
 
@@ -30,7 +49,7 @@
   Yes! Send us a message and we’ll process your request no questions asked.
 
   Do you provide additional support?
-  Chat and email support is available 24/7. Phone lines are open during normal business hours.
+  Chat and email support is available 24/7. Phone lines are open during normal business hours. -->
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
