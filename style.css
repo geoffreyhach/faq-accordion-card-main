@@ -20,7 +20,8 @@ main {
     ELEMENTS
     ========== */
 .card {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin : 100px;
     background-color:hsl(0, 0%, 100%);
     border-radius: 20px;
@@ -33,13 +34,16 @@ main {
 .card-img {
 
     background-image: url(/images/illustration-woman-online-desktop.svg),
-                      url(/images/bg-pattern-desktop.svg);
-                    
+                      url(/images/bg-pattern-desktop.svg);               
     background-size: 100%, 100%;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: calc(100% - 60px) 0;
+}
 
-    width : 50%;
+.card-img svg {
+    position: relative;
+    right : 95px;
+    top : 100px;
 
 }
 
@@ -47,39 +51,72 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* flex-direction: flex-start; */
+    justify-content: center;
     padding-left: 30px;
-    width: 50%;
+
     gap: 5px;
 }
 
 .accordion {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    font-family: 'Kumbh Sans', sans-serif;
-    font-size: 1.2em;
-    font-weight: 400;
-    
-    color : hsl(238, 29%, 16%);
+    gap: 10px;    
+}
+
+.accordion::after {
+    content:"";
+    height: 1px;
+    width: 100%;
+    background-color: hsl(240, 5%, 91%)
+}
+
+.accordion-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
     border: 0px;
     width: 100%;
     background-color: hsl(0, 0%, 100%);
+    
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    color : hsl(238, 29%, 60%);
+
     cursor: pointer;
+
 }
 
-.accordion:hover {
+.accordion-title:hover {
     color : hsl(14, 88%, 65%);
 }
 
-.panel {
-    display: none;
+.accordion-answer {
+    max-height: 0px;
+    overflow: hidden;
+    transition: 400ms ease-out max-height;
+    
+}
 
+.active {
+    font-weight: 700;
+    color : hsl(238, 29%, 16%);
+}
+
+svg {
+    transition: 400ms ease-out;
+}
+
+.active svg {
+    transform: rotate(180deg);
+    transition: 400ms ease-out;
 }
 /* ==========
     TYPO
     ========== */
-h1 {
+.card-faq h1 {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 2rem;
     font-weight: 700;
@@ -88,10 +125,52 @@ h1 {
 }
 
 
-p {
+.accordion-answer p {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 1.2em;
     font-weight: 400;
     color : hsl(238, 29%, 60%);
 }
 
+
+/* ==========
+    MEDIA QUERIES
+    ========== */
+
+@media screen and (max-width: 480px) {
+    .card {
+        grid-template-columns: 1fr;
+        min-width: 80vw;
+        padding: 0px 10px 30px 10px;
+    }
+
+    .card-img {
+        
+        background-image: url(/images/illustration-woman-online-mobile.svg);
+        background-position: 0 calc(100% - 10px);
+        padding-top: 1000px;
+        margin-top: -1000px;
+        overflow: visible;
+       
+    }
+
+    .card-img svg {
+        top: -100px;
+        right : 40px;
+        transform: scale(0.40);
+    }
+
+    .card-faq {
+        padding : 10px;
+        align-items: center;
+    }
+
+    .accordion-title {
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        text-align: left;
+    }
+
+  
+}
