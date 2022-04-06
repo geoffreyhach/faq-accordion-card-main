@@ -21,30 +21,42 @@ main {
     ========== */
 
 .card {
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 480px 1fr;
     margin : 100px;
     background-color:hsl(0, 0%, 100%);
     border-radius: 20px;
-    padding : 50px 50px 50px 0px;
+    padding : 0px 50px 0px 0px;
     width: 60vw;
+    min-width: 900px;
     min-height: 500px;
     box-shadow: 0px 30px 30px hsla(0, 5%, 29%, 0.349);
 }
 
 .card-img {
+    position: relative;
+    overflow: hidden;
+    z-index:0;
 
-    background-image: url(/images/illustration-woman-online-desktop.svg),
-                      url(/images/bg-pattern-desktop.svg);               
-    background-repeat: no-repeat;
-    background-position: calc(100% - 60px) 0;
 }
 
-.card-img svg {
-    position: relative;
-    right : 120px;
-    top : 130px;
+.pattern {
+    top: -350px;
+}
 
+.pattern,
+.woman {
+    position: absolute;
+    min-width: 100%;
+    right : 60px;
+
+}
+
+.box {
+    position: absolute;
+    top : 120px;
+    left : -95px;
 }
 
 .card-faq {
@@ -54,6 +66,7 @@ main {
     justify-content: flex-start;
     margin-top: 30px;
     padding-left: 30px;
+    padding-top:50px;
     gap: 5px;
 
 }
@@ -88,7 +101,6 @@ main {
     color : hsl(238, 29%, 60%);
 
     cursor: pointer;
-
 }
 
 .accordion-title:hover {
@@ -140,28 +152,36 @@ svg {
     MEDIA QUERIES
     ========== */
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 480px) {
     .card {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 5fr;
-        min-width: 80vw;
+        grid-template-rows: 80px 10fr;
+        min-width: 90vw;
         padding: 0px 10px 30px 10px;
         min-height: 500px;
     }
-
     .card-img {
-        background-image: url(/images/illustration-woman-online-mobile.svg);
-        background-position: 0 calc(100% - 10px);
-        padding-top: 210px;
-        margin-top: -200px;
-        margin-left: auto;
-        margin-right: auto;
-  
-        width : 90%;
-
+        overflow: visible;
     }
 
-    .card-img svg {
+    .woman {
+        position: absolute;
+        width: 90%;
+        height: auto;
+        margin: auto;
+        right : 0;
+        left: 0;
+        top : -120px;
+    }
+    .pattern {
+        position: absolute;
+        width: 90%;
+        height: auto;
+        margin: auto;
+        right : 0;
+        left: 0;
+    } 
+    .box {
         display: none;
     }
 
@@ -170,15 +190,10 @@ svg {
         align-items: center;
         justify-content: flex-start;
         margin-top: 0;
-        max-height: 400px;
 
-   
-        
     }
-
     .accordion {
         justify-content: flex-start;
-   
     }
     .accordion-title {
         justify-content: space-between;
