@@ -19,6 +19,7 @@ main {
 /* ==========
     ELEMENTS
     ========== */
+
 .card {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -35,15 +36,14 @@ main {
 
     background-image: url(/images/illustration-woman-online-desktop.svg),
                       url(/images/bg-pattern-desktop.svg);               
-    background-size: 100%, 100%;
     background-repeat: no-repeat;
     background-position: calc(100% - 60px) 0;
 }
 
 .card-img svg {
     position: relative;
-    right : 95px;
-    top : 100px;
+    right : 120px;
+    top : 130px;
 
 }
 
@@ -51,17 +51,19 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 30px;
     padding-left: 30px;
-
     gap: 5px;
+
 }
 
 .accordion {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;    
+    align-items: center;   
+    gap: 10px;  
+      
 }
 
 .accordion::after {
@@ -116,6 +118,7 @@ svg {
 /* ==========
     TYPO
     ========== */
+
 .card-faq h1 {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 2rem;
@@ -125,7 +128,7 @@ svg {
 }
 
 
-.accordion-answer p {
+.accordion p {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 1.2em;
     font-weight: 400;
@@ -137,34 +140,46 @@ svg {
     MEDIA QUERIES
     ========== */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
     .card {
         grid-template-columns: 1fr;
+        grid-template-rows: 1fr 5fr;
         min-width: 80vw;
         padding: 0px 10px 30px 10px;
+        min-height: 500px;
     }
 
     .card-img {
-        
         background-image: url(/images/illustration-woman-online-mobile.svg);
         background-position: 0 calc(100% - 10px);
-        padding-top: 1000px;
-        margin-top: -1000px;
-        overflow: visible;
-       
+        padding-top: 210px;
+        margin-top: -200px;
+        margin-left: auto;
+        margin-right: auto;
+  
+        width : 90%;
+
     }
 
     .card-img svg {
-        top: -100px;
-        right : 40px;
-        transform: scale(0.40);
+        display: none;
     }
 
     .card-faq {
         padding : 10px;
         align-items: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        max-height: 400px;
+
+   
+        
     }
 
+    .accordion {
+        justify-content: flex-start;
+   
+    }
     .accordion-title {
         justify-content: space-between;
         align-items: center;
